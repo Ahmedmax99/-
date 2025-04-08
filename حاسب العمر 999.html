@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حاسبة العمر</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .calculator {
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 25px 20px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .inputs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
+
+    .inputs input {
+      width: 30%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00e0b5;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00c7a4;
+    }
+
+    #result {
+      margin-top: 25px;
+      background: #ffffff20;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+    .highlight {
+      font-size: 22px;
+      color: #ffd700;
+    }
+
+    @media (max-width: 400px) {
+      .inputs {
+        flex-direction: column;
+      }
+
+      .inputs input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>حاسبة العمر</h2>
+    <div class="inputs">
+      <input type="number" id="year" placeholder="السنة" min="1900" max="2100" />
+      <input type="number" id="month" placeholder="الشهر" min="1" max="12" />
+      <input type="number" id="day" placeholder="اليوم" min="1" max="31" />
+    </div>
+    <button onclick="calculateAge()">احسب عمري</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateAge() {
+      const day = parseInt(document.getElementById("day").value);
+      const month = parseInt(document.getElementById("month").value) - 1;
+      const year = parseInt(document.getElementById("year").value);
+      const result = document.getElementById("result");
+
+      if (!day || isNaN(month) || !year) {
+        result.textContent = "يرجى إدخال تاريخ ميلاد صحيح.";
+        return;
+      }
+
+      const birthDate = new Date(year, month, day);
+      const today = new Date();
+
+      if (birthDate > today) {
+        result.textContent = "تاريخ الميلاد لا يمكن أن يكون في المستقبل.";
+        return;
+      }
+
+      let years = today.getFullYear() - birthDate.getFullYear();
+      let months = today.getMonth() - birthDate.getMonth();
+      let days = today.getDate() - birthDate.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      result.innerHTML = `عمرك هو: <span class="highlight">${years}</span> سنة، <span class="highlight">${months}</span> شهر، <span class="highlight">${days}</span> يوم.`;
+    }
+  </script>
+</body>
+</html>
