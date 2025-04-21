@@ -1,0 +1,7 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:99999.0,
+https://archive.org/download/dora-1dun/Dora%201dun.ts
+#EXT-X-ENDLIST
