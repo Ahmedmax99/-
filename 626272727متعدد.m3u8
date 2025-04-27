@@ -1,5 +1,7 @@
 #EXTM3U
 #EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:0
 
 # الجودة 1080p
 #EXT-X-STREAM-INF:BANDWIDTH=5000000,RESOLUTION=1920x1080
@@ -7,8 +9,10 @@ https://drive.google.com/uc?export=download&id=1D9aqrntW5Qr1OtIc_r-SLyuzvYw_QOYu
 
 # الجودة 720p
 #EXT-X-STREAM-INF:BANDWIDTH=3000000,RESOLUTION=1280x720
-https://drive.google.com/uc?export=download&id=1HjXX869ORqilmr6xyQGXiBLmFryQxKnp
+https://drive.google.com/uc?export=download&id=1D9aqrntW5Qr1OtIc_r-SLyuzvYw_QOYu
 
 # الجودة 480p
 #EXT-X-STREAM-INF:BANDWIDTH=1500000,RESOLUTION=854x480
-https://drive.google.com/file/d/1woBGAGeP9wMWJrEY5UuqRKtzO269gZc0/view?usp=drivesdk
+https://drive.google.com/uc?export=download&id=1D9aqrntW5Qr1OtIc_r-SLyuzvYw_QOYu
+
+#EXT-X-ENDLIST
